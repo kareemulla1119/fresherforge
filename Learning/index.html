@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn Java - Complete Course</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Learn Java - Complete Course</h1>
+    <div class="concept" id="basics">
+      <h2>Java Basics</h2>
+      <p>Learn the fundamentals of Java programming.</p>
+      <button onclick="showExample('basics')">Show Example</button>
+      <div class="example" id="basics-example" style="display: none;">
+        <pre><code>public class Main {
+  public static void main(String[] args) {
+    System.out.println("Hello, World!");
+  }
+}</code></pre>
+      </div>
+      <div class="quiz" id="basics-quiz">
+        <h3>Quick Quiz</h3>
+        <p>What is the entry point of a Java program?</p>
+        <input type="radio" name="basics" value="1"> main() method<br>
+        <input type="radio" name="basics" value="2"> start() method<br>
+        <input type="radio" name="basics" value="3"> init() method<br>
+        <button onclick="checkAnswer('basics')">Submit</button>
+        <p id="basics-feedback"></p>
+      </div>
+    </div>
+
+    <div class="concept" id="oops">
+      <h2>Java OOPs Concepts</h2>
+      <p>Learn about Object-Oriented Programming in Java.</p>
+      <button onclick="showExample('oops')">Show Example</button>
+      <div class="example" id="oops-example" style="display: none;">
+        <pre><code>class Animal {
+  void sound() {
+    System.out.println("Animal sound");
+  }
+}
+
+class Dog extends Animal {
+  void sound() {
+    System.out.println("Bark");
+  }
+}</code></pre>
+      </div>
+      <div class="quiz" id="oops-quiz">
+        <h3>Quick Quiz</h3>
+        <p>Which keyword is used for inheritance in Java?</p>
+        <input type="radio" name="oops" value="1"> extends<br>
+        <input type="radio" name="oops" value="2"> implements<br>
+        <input type="radio" name="oops" value="3"> super<br>
+        <button onclick="checkAnswer('oops')">Submit</button>
+        <p id="oops-feedback"></p>
+      </div>
+    </div>
+
+    <div class="concept" id="collections">
+      <h2>Java Collections</h2>
+      <p>Learn about Java Collections Framework.</p>
+      <button onclick="showExample('collections')">Show Example</button>
+      <div class="example" id="collections-example" style="display: none;">
+        <pre><code>import java.util.ArrayList;
+
+public class Main {
+  public static void main(String[] args) {
+    ArrayList<String> list = new ArrayList<>();
+    list.add("Java");
+    list.add("Python");
+    System.out.println(list);
+  }
+}</code></pre>
+      </div>
+      <div class="quiz" id="collections-quiz">
+        <h3>Quick Quiz</h3>
+        <p>Which collection class is resizable in Java?</p>
+        <input type="radio" name="collections" value="1"> ArrayList<br>
+        <input type="radio" name="collections" value="2"> Array<br>
+        <input type="radio" name="collections" value="3"> HashMap<br>
+        <button onclick="checkAnswer('collections')">Submit</button>
+        <p id="collections-feedback"></p>
+      </div>
+    </div>
+
+    <div class="concept" id="exceptions">
+      <h2>Java Exceptions</h2>
+      <p>Learn about exception handling in Java.</p>
+      <button onclick="showExample('exceptions')">Show Example</button>
+      <div class="example" id="exceptions-example" style="display: none;">
+        <pre><code>public class Main {
+  public static void main(String[] args) {
+    try {
+      int result = 10 / 0;
+    } catch (ArithmeticException e) {
+      System.out.println("Cannot divide by zero!");
+    }
+  }
+}</code></pre>
+      </div>
+      <div class="quiz" id="exceptions-quiz">
+        <h3>Quick Quiz</h3>
+        <p>Which block is used to handle exceptions in Java?</p>
+        <input type="radio" name="exceptions" value="1"> try-catch<br>
+        <input type="radio" name="exceptions" value="2"> if-else<br>
+        <input type="radio" name="exceptions" value="3"> switch-case<br>
+        <button onclick="checkAnswer('exceptions')">Submit</button>
+        <p id="exceptions-feedback"></p>
+      </div>
+    </div>
+  </div>
+
+  <div id="congrats" style="display: none;">
+    <h2>🎉 Congratulations! 🎉</h2>
+    <p>You've scored <span id="score"></span>%! Enter your name to generate your certificate:</p>
+    <input type="text" id="name" placeholder="Your Name">
+    <button onclick="generateCertificate()">Generate Certificate</button>
+  </div>
+
+  <div id="certificate" style="display: none;">
+    <h2>Certificate of Completion</h2>
+    <p>This certifies that <span id="certificate-name"></span> has successfully completed the Java course with a score of <span id="certificate-score"></span>%.</p>
+    <button onclick="window.print()">Print Certificate</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
