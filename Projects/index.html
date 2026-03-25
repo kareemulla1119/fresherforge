@@ -1,0 +1,118 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Project Bundles - Unlock Your Coding Potential</title>
+        <link rel="stylesheet" href="style.css">
+
+        <!-- SEO Meta Tags -->
+        <meta name="description" content="Boost your coding skills with over 100 real-world projects! Master logic, real-life implementation, and create impressive projects to showcase in your portfolio and resume for a huge impact.">
+        <meta name="keywords" content="coding, projects, Java, Python, web development, programming skills, portfolio, resume">
+        <meta name="author" content="FreshersForge">
+
+        <!-- Open Graph Meta Tags for Social Media -->
+        <meta property="og:title" content="Project Bundles - Unlock Your Coding Potential">
+        <meta property="og:description" content="Boost your coding skills with over 100 real-world projects! Master logic, real-life implementation, and create impressive projects to showcase in your portfolio and resume for a huge impact.">
+        <!-- <meta property="og:image" content="https://example.com/thumbnail.jpg">
+        <meta property="og:url" content="https://example.com/project-bundles"> -->
+        <meta property="og:type" content="website">
+
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Project Bundles - Unlock Your Coding Potential">
+        <meta name="twitter:description" content="Boost your coding skills with over 100 real-world projects! Master logic, real-life implementation, and create impressive projects to showcase in your portfolio and resume for a huge impact.">
+        <!-- <meta name="twitter:image" content="https://example.com/thumbnail.jpg"> -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lacquer&family=Macondo&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+        
+    </head>
+    <body>
+
+        <nav class="navbar">
+            <div class="logo">
+            <a href="../index.html">
+                <div class="main-text lacquer-regular">FF</div>
+                <div class="sub-text">FreshersForge</div>
+            </a>
+            </div>
+            <span class="menu-toggle" aria-label="Toggle navigation">&#9776;</span>
+            <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../ATS/ATS.html">Check Your ATS Score</a></li>
+            <li><a href="../pdf/index.html">Download Free PDF</a></li>
+            <li><a href="../importance_portfolio/impofportfolio.html">Why Portfolio</a></li>
+            </ul>
+        </nav>
+
+        <div class="container">
+            <h1>🚀 Project Bundles - Master Coding Today!</h1>
+            <p>Elevate your coding game with 100+ hands-on projects for only <strong>₹299</strong>! Develop logical thinking, real-world application skills, and create impressive projects to make your portfolio and resume stand out.</p>
+            <div class="stats">
+                <p>👀 Views: <span id="viewCount">153</span></p>
+                <p>🛒 Purchased: <span id="purchaseCount">32</span></p>
+            </div>
+            <div class="bundle-container">
+                <div class="bundle-card" data-original-price="259">
+                    <div class="bundle-header">
+                        <h2>🐍 Python Bundle</h2>
+                        <span class="discount-tag">80% OFF</span>
+                    </div>
+                    <p>Over 100 mini projects to boost your Python skills.</p>
+                    <p class="price">₹<span class="discount-price">259</span> <span class="original-price">₹1299</span></p>
+                    <input type="text" class="referral" placeholder="Enter referral code">
+                    <button class="apply-referral">Apply Code</button>
+                    <a href="python.pdf" target="_blank" class="pdf-button">📄 Check the List of Projects</a>
+                    <button class="buy-button">🚀 Buy Now</button>
+                </div>
+
+                <div class="bundle-card" data-original-price="299">
+                    <div class="bundle-header">
+                        <h2>☕ Java Bundle</h2>
+                        <span class="discount-tag">77% OFF</span>
+                    </div>
+                    <p>200+ Java projects to enhance your programming skills.</p>
+                    <p class="price">₹<span class="discount-price">299</span> <span class="original-price">₹1299</span></p>
+                    <input type="text" class="referral" placeholder="Enter referral code">
+                    <button class="apply-referral">Apply Code</button>
+                    <a href="Java.pdf" target="_blank" class="pdf-button">📄 Check the List of Projects</a>
+                    <button class="buy-button">🚀 Buy Now</button>
+                </div>
+
+                <div class="bundle-card" data-original-price="299">
+                    <div class="bundle-header">
+                        <h2>✨ Web Development</h2>
+                        <span class="discount-tag">70% OFF</span>
+                    </div>
+                    <p>200+ Web Development (Frontend) projects for web development excellence.</p>
+                    <p class="price">₹<span class="discount-price">299</span> <span class="original-price">₹999</span></p>
+                    <input type="text" class="referral" placeholder="Enter referral code">
+                    <button class="apply-referral">Apply Code</button>
+                    <a href="Web Development.pdf" target="_blank" class="pdf-button">📄 Check the List of Projects</a>
+                    <button class="buy-button">🚀 Buy Now</button>
+                </div>
+            </div>
+            <div class="upcoming">
+                <h2>🚀 Coming Soon!</h2>
+                <p>We are working on adding <strong>ML & AI</strong> and <strong>Full-Stack Development</strong> project bundles. Stay tuned!</p>
+                <p>Need a <strong>customized project</strong>? We can build it for you! Contact us at <a href="mailto:freshersforgeshop@outlook.com">freshersforgeshop@outlook.com</a>
+                    for inquiries.</p>
+            </div>
+        </div>
+        <script src="script.js"></script>
+        <script>
+            function randomIncrease(elementId, min, max) {
+                setInterval(() => {
+                    let element = document.getElementById(elementId);
+                    let current = parseInt(element.innerText.replace(/,/g, ''));
+                    let increase = Math.floor(Math.random() * (max - min + 1)) + min;
+                    element.innerText = (current + increase).toLocaleString();
+                }, 7000);
+            }
+            
+            randomIncrease("viewCount", 5, 20);
+            randomIncrease("purchaseCount", 1, 5);
+        </script>
+    </body>
+    </html>
