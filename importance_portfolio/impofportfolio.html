@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Portfolio and ATS-Friendly Resumes Are Essential</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f8f9fa;
+            scroll-behavior: smooth;
+        }
+
+       
+
+        .container {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 30px;
+            border-radius: 8px;
+            background: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .section:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            color: #007bff;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            color: #555;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            background: #f1f1f1;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 1rem;
+            color: #333;
+            transition: background 0.3s ease;
+        }
+
+        ul li:hover {
+            background: #e2e2e2;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            
+        }
+
+        .image-container img {
+
+            max-width: 50%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.05);
+        }
+
+        .graphs {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            gap: 20px;
+        }
+
+        .graph {
+            flex: 1;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .graph:hover {
+            transform: translateY(-5px);
+        }
+
+        .graph h3 {
+            font-size: 1.5rem;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        .cta {
+            text-align: center;
+            margin-top: 50px;
+            animation: zoomIn 1s ease-in-out;
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .cta button {
+            background: #007bff;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta button:hover {
+            background: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .cta img {
+            width: 80px;
+            margin-top: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .cta img:hover {
+            transform: scale(1.1);
+        }
+
+        
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .image-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .image-container img {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .graphs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .graph {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .cta img {
+                width: 60px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+    <div class="container">
+        <section id="portfolio" class="section">
+            <h2>The Importance of a Portfolio</h2>
+            <p>In today’s competitive job market, having a <span class="highlight">portfolio</span> isn’t just an option—it’s a necessity. A portfolio showcases your skills, achievements, and projects in a visually appealing format. It gives recruiters tangible proof of your capabilities.</p>
+            <div class="image-container">
+                <img src="portfolio.jpg" alt="Portfolio Example">
+            </div>
+            <ul>
+                <li><strong>Fact:</strong> <span class="highlight">74%</span> of recruiters prefer candidates who provide examples of their work.</li>
+                <li><strong>Impact:</strong> Portfolios can increase your interview chances by <span class="highlight">50%</span>.</li>
+                <li><strong>Advantage:</strong> Having a portfolio can lead to a <span class="highlight">30%</span> higher chance of being hired over candidates without one.</li>
+                <li><strong>Downside:</strong> Without a portfolio, you may miss out on demonstrating your practical skills and uniqueness.</li>
+            </ul>
+        </section>
+
+        <section id="ats-resume" class="section">
+            <h2>ATS-Friendly Resumes: Why They Matter</h2>
+            <p>An Applicant Tracking System (ATS) is software used by companies to filter resumes. A poorly formatted resume might never reach human eyes, regardless of your qualifications.</p>
+            <div class="image-container">
+                <img src="Resume.jpg" alt="ATS Resume Example">
+            </div>
+            <ul>
+                <li><strong>Fact:</strong> Over <span class="highlight">75%</span> of resumes are rejected by ATS systems before reaching recruiters.</li>
+                <li><strong>Solution:</strong> ATS-friendly resumes use proper formatting, keywords, and simple designs to pass the initial screening.</li>
+                <li><strong>Advantage:</strong> Ensuring your resume is ATS-compatible can increase your chances of getting an interview by up to <span class="highlight">40%</span>.</li>
+                <li><strong>Downside:</strong> If your resume isn't ATS-friendly, it could be automatically rejected, regardless of your qualifications.</li>
+            </ul>
+        </section>
+
+        <section id="statistics" class="section">
+            <h2>Statistics at a Glance</h2>
+            <div class="graphs">
+                <div class="graph">
+                    <h3>Importance of Portfolio</h3>
+                    <canvas id="portfolioGraph"></canvas>
+                </div>
+                <div class="graph">
+                    <h3>Advantages of ATS</h3>
+                    <canvas id="atsGraph"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Top MNCs Utilizing Portfolios and ATS</h2>
+            <p>Many top multinational companies are leveraging portfolios and ATS to streamline their hiring processes and identify the best candidates. These tools help them efficiently manage large volumes of applications and ensure they are hiring candidates with the right skills and experience.</p>
+            <div class="image-container">
+                <img src="MNC.jpg" alt="MNC Hiring Process">
+            </div>
+            <ul>
+                <li><strong>Google:</strong> Uses portfolios to assess candidates' creativity and practical skills.</li>
+                <li><strong>Amazon:</strong> Utilizes ATS to filter resumes and ensure they meet job requirements.</li>
+                <li><strong>Microsoft:</strong> Combines portfolios and ATS to streamline the hiring process and find the best talent.</li>
+                <li><strong>Facebook:</strong> Relies on ATS and portfolios to evaluate candidates' fit for roles and team culture.</li>
+            </ul>
+        </section>
+
+        <div id="cta" class="cta">
+            <h2>Stand Out With Professional Tools</h2>
+            <p>Don’t leave your career to chance. Get a custom portfolio and ATS-friendly resume today!</p>
+            <button onclick="window.location.href='https://yourportfolioandresume.com'">Order Now</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Portfolio Graph
+        const portfolioCtx = document.getElementById('portfolioGraph').getContext('2d');
+        const portfolioGraph = new Chart(portfolioCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Recruiters Prefer', 'Increased Interviews', 'Higher Hire Chances'],
+                datasets: [{
+                    label: 'Percentage',
+                    data: [74, 50, 30],
+                    backgroundColor: ['#007bff', '#28a745', '#ffc107'],
+                    borderColor: ['#0056b3', '#218838', '#e0a800'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // ATS Graph
+        const atsCtx = document.getElementById('atsGraph').getContext('2d');
+        const atsGraph = new Chart(atsCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Resumes Selected', 'Interview Chances'],
+                datasets: [{
+                    label: 'Percentage',
+                    data: [75, 40],
+                    backgroundColor: ['#dc3545', '#28a745'],
+                    borderColor: ['#bd2130', '#218838'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="ATS Resume Score Checker - Check your resume's compatibility with Applicant Tracking Systems.">
+    <meta name="keywords" content="ATS Resume Checker, Resume Score, Job Resume, Applicant Tracking System">
+    <meta name="author" content="Kareemulla">
+    <title>Advanced ATS Resume Score Checker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lacquer&family=Macondo&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+      
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="../index.html">
+                <div class="main-text lacquer-regular">FF</div>
+                <div class="sub-text">FreshersForge</div>
+            </a>
+        </div>
+        <span class="menu-toggle" aria-label="Toggle navigation">&#9776;</span>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="ATS.html">Check Your ATS Score</a></li>
+            <li><a href="../pdf/index.html">Download Free PDF</a></li>
+            <li><a href="../importance_portfolio/impofportfolio.html">Why Portfolio</a></li>
+            <li><a href="../Projects/index.html">Buy Project</a></li>
+        </ul>
+    </nav>
+
+    <h1>Advanced ATS Resume Score Checker</h1>
+
+
+
+
+
+
+
+    <div class="container">
+
+        <div class="image-section">
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="Ats.png" alt="ATS Image" />
+                    <img src="Ats1.png" alt="Another ATS Image" />
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="text-section">
+            <h2>Optimize Your Resume for ATS</h2>
+            <p><b>Applicant Tracking Systems (ATS)</b> are <b>software tools</b> used by <b>employers</b> and
+                <b>recruiters</b> to filter and manage <b>resumes</b>. Many <b>companies rely on ATS</b> to
+                <b>streamline</b> the <b>hiring process</b>. ATS helps in <b>faster resume screening</b>, <b>improved
+                    candidate matching</b>, <b>reduced human bias</b>, and <b>better organization</b>. An
+                <b>ATS-optimized resume</b> can improve your chances with hiring managers.
+            </p>
+
+
+            <div class="input-container">
+                <input type="file" id="resume-file" accept="application/pdf"><br><br>
+                <button onclick="checkScore()">Check Score</button><br><br>
+            </div>
+        </div>
+
+     
+
+    </div>
+
+
+
+
+
+
+
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="removeModal()">×</span>
+
+            <p>Book a one-on-one session to Enhnace the Resume: <a
+                    href="https://wa.me/+919490338810?text=Hello%2C%20I%20would%20like%20to%20book%20a%20one-on-one%20session."
+                    class="whatsapp-button" target="_blank">Click here</a></p>
+        </div>
+    </div>
+
+    <div id="score"></div>
+    <div id="suggestions"></div>
+
+    <div class="note">This ATS is still learning, score might vary with other websites.</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+
+    <script>
+        function extractTextFromPDF(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const pdfData = new Uint8Array(e.target.result);
+                    pdfjsLib.getDocument(pdfData).promise.then(function (pdfDoc) {
+                        let text = '';
+                        const numPages = pdfDoc.numPages;
+
+                        const processPage = (pageNum) => {
+                            pdfDoc.getPage(pageNum).then(function (page) {
+                                page.getTextContent().then(function (textContent) {
+                                    textContent.items.forEach(function (item) {
+                                        text += item.str + ' ';
+                                    });
+                                    if (pageNum < numPages) {
+                                        processPage(pageNum + 1);
+                                    } else {
+                                        resolve(text.toLowerCase());
+                                    }
+                                });
+                            });
+                        };
+                        processPage(1);
+                    }).catch(function (err) {
+                        reject(err);
+                    });
+                };
+                reader.readAsArrayBuffer(file);
+            });
+        }
+
+        function checkScore() {
+            const fileInput = document.getElementById("resume-file");
+            if (fileInput.files.length === 0) {
+                alert("Please select a PDF file first.");
+                return;
+            }
+
+            const file = fileInput.files[0];
+
+            extractTextFromPDF(file).then(function (resumeText) {
+                const maxScore = 100;
+
+                // 1. Keyword Matching and Density
+                const keywords = [
+                    // IT-related skills
+                    "software engineer", "javascript", "react", "node.js", "python",
+                    "java", "c\\+\\+", "c#", "agile", "scrum", "git", "github", "aws",
+                    "azure", "gcp", "devops", "machine learning", "data science",
+                    "ai", "big data", "cloud computing", "cybersecurity", "full stack",
+                    "frontend", "backend", "mobile", "ios", "android", "testing",
+                    "qa", "ux", "ui", "design", "leadership", "management",
+
+                    // Non-IT-related skills
+                    "communication", "teamwork", "problem-solving", "creativity", "critical thinking",
+                    "negotiation", "time management", "conflict resolution", "adaptability", "public speaking",
+                    "decision-making", "customer service", "sales", "marketing", "project management",
+                    "budgeting", "financial analysis", "human resources", "research", "writing",
+                    "collaboration", "multitasking", "organization", "detail-oriented", "networking",
+                    "presentation skills", "empathy", "active listening", "mentoring", "coaching",
+                    "customer relationship management", "strategic planning", "branding", "event planning",
+                    "data analysis", "social media management", "content creation", "productivity", "confidentiality",
+                    "inventory management", "team management", "process improvement", "business development",
+                    "quality control", "technical writing", "market research", "training", "consulting", "recruiting"
+                ];
+
+                let keywordMatches = 0;
+                keywords.forEach(keyword => {
+                    const regex = new RegExp('\\b' + keyword + '\\b', 'gi');
+                    const matches = resumeText.match(regex);
+                    if (matches) {
+                        keywordMatches += matches.length;
+                    }
+                });
+
+                const keywordDensityScore = (keywordMatches / keywords.length) * 15;
+
+                // 2. Formatting and Structure
+                let formattingScore = 0;
+                if (resumeText.includes("\n")) { // Check for line breaks
+                    formattingScore += 2;
+                }
+                if (resumeText.includes("**") || resumeText.includes("*")) { // Check for bolding/italicization
+                    formattingScore += 1;
+                }
+                if (resumeText.includes("- ") || resumeText.includes("• ")) { // Check for bullet points
+                    formattingScore += 2;
+                }
+
+                // 3. Contact Information
+                let contactScore = 0;
+                if (resumeText.includes("@")) { // Check for email address
+                    contactScore += 5;
+                }
+                if (resumeText.match(/\d{3}-\d{3}-\d{4}/)) { // Check for phone number (basic format)
+                    contactScore += 5;
+                }
+
+                // 4. Experience and Skills Sections
+                let experienceSkillsScore = 0;
+                if (resumeText.includes("experience")) {
+                    experienceSkillsScore += 10;
+                }
+                if (resumeText.includes("skills")) {
+                    experienceSkillsScore += 10;
+                }
+
+                // 5. Quantifiable Achievements (Bonus)
+                const achievements = [
+                    "increased", "improved", "reduced", "launched", "developed",
+                    "implemented", "achieved", "delivered", "streamlined", "saved",
+                    "grew", "expanded", "boosted", "optimized"
+                ];
+                let achievementScore = 0;
+                achievements.forEach(achievement => {
+                    if (resumeText.includes(achievement)) {
+                        achievementScore += 5; // Bonus points for quantifiable achievements
+                        return; // Only award bonus once
+                    }
+                });
+
+                // 6. Resume Length
+                const wordCount = resumeText.trim().split(/\s+/).length;
+                let lengthScore = 0;
+                if (wordCount >= 150 && wordCount <= 300) { // Adjust word count range as needed
+                    lengthScore += 5;
+                }
+
+                // 7. Professionalism and Clarity
+                let professionalismScore = 0;
+                // Check for common errors (basic checks)
+                if (!resumeText.includes("i") || !resumeText.includes("my")) {
+                    professionalismScore += 2;
+                } // Avoid excessive use of "I" and "my"
+                if (!resumeText.includes("objective") && !resumeText.includes("summary")) {
+                    professionalismScore += 2;
+                } // Encourage objective/summary section
+
+                // Calculate final score
+                const totalScore =
+                    keywordDensityScore +
+                    formattingScore +
+                    contactScore +
+                    experienceSkillsScore +
+                    achievementScore +
+                    lengthScore +
+                    professionalismScore;
+
+                // Display the score and suggestions
+                const scoreElement = document.getElementById("score");
+                const suggestionsElement = document.getElementById("suggestions");
+                const roundedScore = Math.round(totalScore);
+
+                // Set score color based on value
+                if (roundedScore < 50) {
+                    scoreElement.className = "red";
+                    suggestionsElement.innerHTML = `
+        <h3>Suggestions to Improve:</h3>
+        <ul>
+            <li><strong>Technical Skills:</strong> Include more relevant technical keywords (e.g., JavaScript, Python, Agile, Cloud Computing).</li>
+            <li><strong>Formatting:</strong> Ensure a clear structure with bullet points and distinct sections such as experience, skills, and education.</li>
+            <li><strong>Achievements:</strong> Focus on quantifiable achievements to demonstrate your impact (e.g., "increased sales by 20%").</li>
+            <li><strong>Professional Summary:</strong> Consider adding a professional summary or objective statement that highlights your key strengths and career goals.</li>
+            <li><strong>Non-Technical Skills:</strong> Emphasize soft skills such as communication, teamwork, problem-solving, and leadership.</li>
+            <li><strong>Experience:</strong> Detail relevant work experience with a focus on your contributions and impact.</li>
+        </ul>
+    `;
+                } else if (roundedScore >= 50 && roundedScore <= 80) {
+                    scoreElement.className = "yellow";
+                    suggestionsElement.innerHTML = `
+        <h3>Suggestions to Improve:</h3>
+        <ul>
+            <li><strong>Technical Skills:</strong> Try to add more industry-related technical keywords (e.g., Machine Learning, Full Stack, Cybersecurity, QA Testing).</li>
+            <li><strong>Formatting:</strong> Improve the formatting with clearer sections and well-organized bullet points to enhance readability.</li>
+            <li><strong>Achievements:</strong> Include quantifiable achievements where possible (e.g., "Developed a mobile app that has 10,000 downloads").</li>
+            <li><strong>Non-Technical Skills:</strong> Highlight your soft skills like communication, leadership, and adaptability to complement your technical expertise.</li>
+            <li><strong>Professional Summary:</strong> Consider adding a brief professional summary or objective to summarize your skills and experience.</li>
+        </ul>
+    `;
+                } else {
+                    scoreElement.className = "green";
+                    suggestionsElement.innerHTML = `
+        <h3>Your resume is looking great!</h3>
+        <p>However, you can still consider:</p>
+        <ul>
+            <li><strong>Further Refining the Formatting:</strong> While your resume is good, you could refine the structure even more to highlight key skills and experience.</li>
+            <li><strong>Non-Technical Skills:</strong> Even if you are a tech professional, remember to highlight your soft skills like collaboration, problem-solving, and communication.</li>
+            <li><strong>Professional Summary:</strong> If not already added, you might want to add a brief summary of your career objectives or value proposition to make your resume stand out.</li>
+        </ul>
+    `;
+                }
+
+                scoreElement.innerHTML = `Your estimated ATS score is: ${roundedScore} out of 100`;
+
+
+                // Display the score
+                scoreElement.innerHTML = "Your estimated ATS score is: " + roundedScore + " out of " + 100;
+            }).catch(function (err) {
+                alert("Error extracting text from PDF: " + err);
+            });
+
+        }
+
+// Ensure the script runs after the HTML is fully loaded
+function removeModal() {
+                // Remove the modal from the DOM
+                const modal = document.getElementById("myModal");
+                if (modal) {
+                    modal.remove();
+                }
+            }
+
+            // Show the modal after 10 seconds
+            setTimeout(function () {
+                const modal = document.getElementById("myModal");
+                if (modal) {
+                    modal.style.display = "block";
+                }
+            }, 20000);
+
+    </script>
+    <script src="script1.js"></script>
+</body>
+
+</html>
